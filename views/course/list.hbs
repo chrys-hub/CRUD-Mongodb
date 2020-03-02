@@ -1,0 +1,51 @@
+<div>
+    <a class="btn btn-secondary" href="/course"><i class="fa fa-plus"></i> Create New</a>
+    <h3 align="center" style="color: white;">Chrysna Tech Course List</h3>
+</div>
+<table class="table table-striped table-dark">
+    <thead class="thead-dark">
+
+        <tr>
+            <th>
+                <center>Course Name</center>
+            </th>
+            <th>
+                <center>Course Id</center>
+            </th>
+            <th>
+                <center>Course Duration(Hrs)</center>
+            </th>
+            <th>
+                <center>Course Fee(IDR)</center>
+            </th>
+            <th>
+                <center>Database ID</center>
+            </th>
+            <th>
+                <center>Edit</center>
+            </th>
+            <th>
+                <center>Delete</center>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr align="center">
+            <td>{{this.courseName}}</td>
+            <td>{{this.courseId}}</td>
+            <td>{{this.courseDuration}} Hours</td>
+            <td>Rp.{{this.courseFee}}</td>
+            <td>{{this._id}}</td>
+            <td>
+                <a class="btn btn-primary" href="/course/{{this._id}}"><i class="fa fa-bookmark"></i> Edit </a>
+            </td>
+            <td>
+                <a class="btn btn-danger" href="/course/delete/{{this._id}}"
+                    onclick="return confirm('Are you sure to delete this {{this.courseName}} ?');"> <i
+                        class="fa fa-close"></i> Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
